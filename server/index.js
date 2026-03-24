@@ -7,14 +7,16 @@ app.use(express.json());
 
 // Create a pool
 const db = mysql.createPool({
-  host: "localhost",
+  host: "dpg-d71c08v5r7bs73dpm9fg-a",
   user: "root",
-  password: "Password123!",
-  database: "crud_contact",
+  password: "m1mSbRl6P7sOdKK7VSLZGiQkNxpeUOLJ",
+  database: "crud_contact_mzr9",
+  port: 5432,
 });
 
 app.get("/api/get", (req, res) => {
   const sqlGet = "SELECT * FROM contact_db";
+  console.log("aaa", sqlGet);
   db.query(sqlGet, (error, results) => {
     res.send(results);
   });
@@ -91,6 +93,6 @@ app.get("/insert-static", (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen("0.0.0.0", () => {
+  console.log(`Server running on port`);
 });

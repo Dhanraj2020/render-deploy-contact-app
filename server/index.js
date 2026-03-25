@@ -7,70 +7,18 @@ app.use(express.json());
 
 // Create a pool
 const db = mysql.createPool({
-  host: "dpg-d71c08v5r7bs73dpm9fg-a",
+  host: "localhost",
   user: "root",
-  password: "m1mSbRl6P7sOdKK7VSLZGiQkNxpeUOLJ",
-  database: "crud_contact_mzr9",
-  port: 5432,
+  password: "Password123!",
+  database: "crud_contact",
+  port: 3306,
 });
 
 app.get("/api/get", (req, res) => {
-  const json=[
-  {
-    "id": 1,
-    "name": "Alex",
-    "email": "alex@samplemail.com",
-    "contact": "99876543210"
-  },
-  {
-    "id": 2,
-    "name": "Raj Thosani",
-    "email": "raj.thosani@samplemail.com",
-    "contact": "9988776651"
-  },
-  {
-    "id": 3,
-    "name": "amit singh",
-    "email": "amit.singh@samplemail.com",
-    "contact": "9876598765"
-  },
-  {
-    "id": 4,
-    "name": "Vicky Sharma",
-    "email": "vicky.sharma@samplemail.com",
-    "contact": "9876556789"
-  },
-  {
-    "id": 5,
-    "name": "John Doe",
-    "email": "johndoe12@samplemail.com",
-    "contact": "99876543210"
-  },
-  {
-    "id": 6,
-    "name": "Vishal Dasvate",
-    "email": "vishal.dasvate@gmail.com",
-    "contact": "9876556789"
-  },
-  {
-    "id": 7,
-    "name": "Tushar Sonawane",
-    "email": "tushar.sonawane@gmail.com",
-    "contact": "9876556789"
-  },
-  {
-    "id": 8,
-    "name": "Anay Maurya",
-    "email": "anay.maurya@gmail.com",
-    "contact": "7897897890"
-  }
-]
   const sqlGet = "SELECT * FROM contact_db";
-  console.log("aaa", sqlGet);
-  // db.query(sqlGet, (error, results) => {
-  //   res.send(results);
-  // });
-  res.send(json)
+  db.query(sqlGet, (error, results) => {
+    res.send(results);
+  });
 });
 
 app.post("/api/post", (req, res) => {
@@ -142,8 +90,10 @@ app.get("/insert-static", (req, res) => {
   });
 });
 
+// PORT FIX
 const PORT = process.env.PORT || 5000;
 
-app.listen("0.0.0.0", () => {
-  console.log(`Server running on port`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });
+module.exports = app; //Vercel config

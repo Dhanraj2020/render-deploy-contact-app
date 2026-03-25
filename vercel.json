@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/server/(.*)", "destination": "/server/index.js" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}

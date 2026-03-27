@@ -1,22 +1,30 @@
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2");
-
+const { Pool } = require('pg');
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
 // Use environment variables (IMPORTANT for deployment)
-const db = mysql.createPool({
-  host: process.env.DB_HOST || "localhost",
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASS || "Password123!",
-  database: process.env.DB_NAME || "crud_contact",
-  port: process.env.DB_PORT || 3306,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
+const { Pool } = require('pg');
+
+const db = new Pool({
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'postgres',
+  password: process.env.DB_PASS || 'Password123!',
+  database: process.env.DB_NAME || 'crud_contact',
+  port: process.env.DB_PORT || 5432,
+});
+
+// Test connection
+db.connect((err) => {
+  if (err) {
+    console.error('DB connection failed:', err);
+  } else {
+    console.log('DB connected');
+  }
 });
 
 // Check DB connection

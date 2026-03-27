@@ -1,10 +1,10 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "CRUD Contact API using Express & MySQL",
+  "description": "CRUD Contact API using Express & PostgreSQL",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "author": "",
@@ -12,7 +12,7 @@
   "dependencies": {
     "cors": "^2.8.6",
     "express": "^5.2.1",
-    "mysql2": "^3.20.0"
+    "pg": "^8.20.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"

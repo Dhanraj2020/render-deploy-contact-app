@@ -10,7 +10,7 @@
 ### Phase 2: Fix Server ✅
 - [x] Clean server/index.js (pg queries, duplicates)
   
-### Phase 3: Git & Test
-- [ ] npm install client deps
-- [ ] Test build/start
-- [ ] git add/commit/push
+### Phase 3: Git & Test ✅
+- [x] npm install client deps (70 vulns fixed where possible)
+- [x] Test build/start (client build succeeded, server fixed)
+- [x] git add/commit/push

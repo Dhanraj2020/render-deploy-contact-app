@@ -7,11 +7,10 @@ app.use(cors({origin: "*"}));
 app.use(express.json());
 
 const db = new Pool({
-  host: process.env.DB_HOST || 'localhost',
-  user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASS || 'Password123!',
-  database: process.env.DB_NAME || 'crud_contact',
-  port: process.env.DB_PORT || 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 // Test connection once

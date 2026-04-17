@@ -9,7 +9,7 @@ const Home = () => {
 
   const loadData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/get");
+      const response = await axios.get("https://render-deploy-contact-app.onrender.com/api/get");
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -24,7 +24,7 @@ const Home = () => {
   const handleDeleteContact = async (id) => {
     if (window.confirm("Are you sure you want to delete this record?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/remove/${id}`);
+        await axios.delete(`https://render-deploy-contact-app.onrender.com/api/remove/${id}`);
 
         setData((prev) =>
           prev.filter((item) => Number(item.id) !== Number(id)),

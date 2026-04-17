@@ -94,6 +94,15 @@
 }
 
 @media (max-width: 600px) {
+  .headingBox h1{
+    text-align: left;
+    font-size: 1.5rem;
+  }
+  .styled-table thead tr th:first-child,
+  .styled-table tbody tr td:first-child {
+    width: auto;
+  }
+
   .styled-table thead {
     display: none;
   }
@@ -122,4 +131,5 @@
     text-align: left;
     font-weight: bold;
   }
+
 }
